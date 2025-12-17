@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Pralinen-Guide Weihnachten 2025 – Zutaten & Allergene (Diana & Moritz)." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Pralinen-Guide · Weihnachten 2025</title>
+
+  <style>
+    :root{
+      --bg:#071018;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --border:rgba(255,255,255,.14);
+      --shadow: 0 22px 70px rgba(0,0,0,.38);
+
+      --gold:#f3c969;
+      --berry:#ff4d7d;
+      --pine:#22c55e;
+      --ice:#60a5fa;
+
+      --radius:18px;
+      --radiusSm:14px;
+
+      --max:1100px;
+      --pad:clamp(16px, 4vw, 28px);
+      --gap:clamp(14px, 3vw, 22px);
+
+      --h1: clamp(2.0rem, 4.8vw, 3.2rem);
+      --h2: clamp(1.2rem, 3.0vw, 2.0rem);
+      --p:  clamp(1.0rem, 2.2vw, 1.1rem);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 12% 10%, rgba(255,77,125,.28), transparent 60%),
+        radial-gradient(900px 700px at 86% 18%, rgba(34,197,94,.22), transparent 58%),
+        radial-gradient(900px 700px at 55% 95%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(1400px 900px at 50% 30%, rgba(243,201,105,.10), transparent 68%),
+        var(--bg);
+      line-height:1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; }
+    .container{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--pad);
+    }
+
+    .glass{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left: var(--pad); top: var(--pad);
+      width:auto; height:auto;
+      padding: 10px 12px;
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      z-index: 9999;
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding-top: calc(env(safe-area-inset-top, 0px) * .6);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      min-width: 0;
+    }
+    .logo{
+      width: 36px; height: 36px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, rgba(255,77,125,.95), rgba(34,197,94,.75));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 16px 38px rgba(0,0,0,.22);
+      flex: 0 0 auto;
+    }
+    .brand span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      font-weight: 700;
+    }
+    .btn:hover{
+      background: var(--panel2);
+      border-color: rgba(255,255,255,.22);
+      transform: translateY(-1px);
+    }
+    .btn:active{ transform: translateY(0px); }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: .95rem;
+      white-space: nowrap;
+    }
+
+    main{ padding-bottom: 40px; }
+
+    .hero{
+      margin-top: 14px;
+      padding: clamp(18px, 4vw, 28px);
+      position: relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(650px 320px at 22% 22%, rgba(255,77,125,.18), transparent 60%),
+        radial-gradient(520px 320px at 82% 18%, rgba(34,197,94,.16), transparent 60%),
+        radial-gradient(800px 420px at 50% 105%, rgba(243,201,105,.12), transparent 60%);
+      pointer-events:none;
+      filter: blur(2px);
+    }
+
+    .hero-inner{
+      position: relative;
+      display:grid;
+      gap: var(--gap);
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    h1{
+      margin: 0;
+      font-size: var(--h1);
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+
+    .lead{
+      margin: 0;
+      font-size: var(--p);
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .controls{
+      display:grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .search input::placeholder{ color: rgba(255,255,255,.55); }
+
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .chip{
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      padding: 10px 12px;
+      cursor:pointer;
+      user-select:none;
+      font-weight: 750;
+      color: var(--muted);
+      transition: background .12s ease, transform .12s ease, border-color .12s ease;
+    }
+    .chip:hover{ background: var(--panel2); transform: translateY(-1px); color: var(--text); }
+    .chip[aria-pressed="true"]{
+      background: rgba(243,201,105,.14);
+      border-color: rgba(243,201,105,.28);
+      color: var(--text);
+    }
+
+    section{
+      margin-top: clamp(14px, 3vw, 18px);
+    }
+
+    .section-head{
+      padding: 18px;
+    }
+
+    h2{
+      margin: 0 0 6px 0;
+      font-size: var(--h2);
+      letter-spacing: -0.015em;
+    }
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid{
+      display:grid;
+      gap: var(--gap);
+      margin-top: var(--gap);
+    }
+
+    .card{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .card-top{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+
+    .iconWrap{
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
+        rgba(255,255,255,.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      box-shadow: 0 12px 26px rgba(0,0,0,.18);
+    }
+
+    .card h3{
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -.01em;
+    }
+    .card .metaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .card p{
+      margin: 10px 0 0 0;
+      color: var(--muted);
+    }
+
+    details{
+      margin-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 10px;
+    }
+    summary{
+      cursor:pointer;
+      user-select:none;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      font-weight: 800;
+      color: rgba(255,255,255,.88);
+      padding: 8px 0;
+    }
+    summary::-webkit-details-marker{ display:none; }
+
+    .caret{
+      width: 18px; height: 18px;
+      opacity:.8;
+      transition: transform .12s ease;
+      flex: 0 0 auto;
+    }
+    details[open] .caret{ transform: rotate(180deg); }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .note{
+      margin: 10px 0 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: .95rem;
+    }
+
+    .legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 750;
+      font-size: .92rem;
+    }
+    .tag strong{ color: rgba(255,255,255,.90); font-weight: 900; }
+
+    footer{
+      margin-top: 18px;
+      padding: 18px;
+      color: var(--muted);
+      font-size: .95rem;
+      text-align:center;
+    }
+
+    .mutedBox{
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hidden{ display:none !important; }
+
+    /* Desktop */
+    @media (min-width: 820px){
+      .hero-inner{
+        grid-template-columns: 1.4fr .9fr;
+        align-items:center;
+      }
+      .controls{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Print-friendly for someone who wants to save it */
+    @media print{
+      header{ position: static; }
+      .glass, .card{ box-shadow: none !important; backdrop-filter:none !important; }
+      body{ background:#fff; color:#000; }
+      :root{ --text:#000; --muted:#222; --border:#ddd; }
+      .chip, .btn{ display:none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; transition:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#content">Zum Inhalt springen</a>
+
+  <header class="container">
+    <div class="topbar glass">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Pralinen-Guide · Weihnachten 2025</span>
+      </div>
+      <a class="btn" href="#pralinen" aria-label="Zu den Pralinen springen">Zu den Pralinen</a>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article class="hero glass" aria-label="Einführung">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker">🎄 Diana & Moritz · hausgemacht · festlich</div>
+          <h1>Was steckt in welcher Praline?</h1>
+          <p class="lead">
+            Willkommen zu unserem kleinen Pralinen-Menü für Weihnachten 2025. Hier findest du alle Sorten mit Zutaten und einem Allergen-Hinweis.
+            Wenn du starke Allergien hast, prüfe bitte zusätzlich die Originalverpackungen der verwendeten Produkte (Schokolade, Cornflakes, Knusperflocke usw.).
+          </p>
+
+          <div class="controls" aria-label="Suche und Filter">
+            <div class="search" role="search">
+              <span aria-hidden="true">🔎</span>
+              <input id="searchInput" type="search" inputmode="search" autocomplete="off"
+                     placeholder="Suche nach Zutaten oder Allergenen (z.B. Nuss, Gluten, Milch, Kokos) …" />
+            </div>
+
+            <div class="filters" aria-label="Filter nach Ummantelung">
+              <button class="chip" type="button" data-filter="all" aria-pressed="true">Alle</button>
+              <button class="chip" type="button" data-filter="white" aria-pressed="false">Weiße Schokolade</button>
+              <button class="chip" type="button" data-filter="dark" aria-pressed="false">Zartbitter</button>
+              <button class="chip" type="button" data-filter="80" aria-pressed="false">80% Schokolade</button>
+            </div>
+
+            <div class="legend">
+              <span class="tag"><strong>Hinweis</strong> Icons sind nur Symbolbilder</span>
+              <span class="tag"><strong>QR</strong> Diese Seite ist für Handy optimiert</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mutedBox">
+          <h2 style="margin:0 0 8px 0;">Kurzer Überblick</h2>
+          <p class="sub" style="margin:0 0 10px 0;">
+            Insgesamt 6 Sorten: 2× weiß, 2× zartbitter, 2× 80%. Tippe bei einer Karte auf „Zutaten & Allergene“.
+          </p>
+          <div class="legend">
+            <span class="pill">🤍 2 Sorten</span>
+            <span class="pill">🖤 2 Sorten</span>
+            <span class="pill">⚫ 2 Sorten</span>
+          </div>
+          <p class="note">
+            Stand: Dezember 2025. In einer Küche verarbeitet, in der auch Nüsse und Milchprodukte vorkommen können.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <section id="pralinen" aria-label="Pralinenübersicht">
+      <div class="section-head glass">
+        <h2>Unsere Sorten</h2>
+        <p class="sub">Schlicht, festlich und übersichtlich – für schnelles Nachschauen beim Naschen.</p>
+      </div>
+
+      <div class="grid" id="cards">
+
+        <!-- 1: Herz (weiß) -->
+        <article class="card" data-coating="white"
+                 data-search="herz weiße schokolade pinienkerne himbeeren getrocknet honig nuss">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Heart icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 20s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.5 5.2 5.2 0 0 1 21.2 11C19 15.4 12 20 12 20Z"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Herz · Weiße Schokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: ❤️ Herz</span>
+                <span class="pill">Ummantelung: 🤍 weiß</span>
+              </div>
+              <p>Ein schneeweißes Herz mit winterlicher Beeren-Note: fruchtig, nussig und ganz sanft honigsüß.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>Weiße Schokolade (Ummantelung)</li>
+                  <li>Pinienkerne</li>
+                  <li>Getrocknete Himbeeren</li>
+                  <li>Ein kleines bisschen Honig</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Enthält Pinienkerne. Weiße Schokolade kann Milch enthalten. Bei starken Allergien bitte Verpackungen prüfen.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2: Schneeflocke (weiß) -->
+        <article class="card" data-coating="white"
+                 data-search="schneeflocke weiße schokolade spekulatius walnuss mandelcreme gluten nuss mandel">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Snowflake icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 4l1.2 2.2M18 4l-1.2 2.2M6 20l1.2-2.2M18 20l-1.2-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Schneeflocke · Weiße Schokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: ❄️ rund</span>
+                <span class="pill">Ummantelung: 🤍 weiß</span>
+              </div>
+              <p>Wie ein kleiner Adventsspaziergang: Spekulatiuswürze, Walnussknacken und cremige Mandelwärme im Schnee.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>Weiße Schokolade (Ummantelung)</li>
+                  <li>Spekulatius</li>
+                  <li>Frische Walnuss</li>
+                  <li>Mandelcreme</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Enthält Walnuss und Mandel. Spekulatius enthält typischerweise Gluten. Weiße Schokolade kann Milch enthalten.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3: Iglu (zartbitter) -->
+        <article class="card" data-coating="dark"
+                 data-search="iglu zartbitter schokolade cornflakes knusprig gluten">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Igloo icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14a8 8 0 0 1 16 0v6H4v-6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M7 14h10M8.5 10.8h7M10.2 8.2h3.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M10 20v-3.2c0-1.1.9-2 2-2s2 .9 2 2V20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Iglu · Zartbitterschokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: 🧊 Iglu</span>
+                <span class="pill">Ummantelung: 🖤 zartbitter</span>
+              </div>
+              <p>Knackig wie frischer Schnee unter den Stiefeln: dunkle Schokolade trifft auf Cornflakes-Crunch im kleinen Iglu.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>Zartbitterschokolade (Ummantelung)</li>
+                  <li>Dunkle Schokolade (Füllung)</li>
+                  <li>Cornflakes</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Cornflakes können je nach Produkt Gluten enthalten. Schokolade kann je nach Produkt Milch/Soja-Spuren enthalten. Bei Bedarf bitte Verpackungen prüfen.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4: Stern (zartbitter) -->
+        <article class="card" data-coating="dark"
+                 data-search="stern zartbitter schokolade bio orange orangenschale knusperflocke">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Star icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l2.9 6.2 6.8.7-5.1 4.4 1.6 6.6L12 16.9 5.8 20l1.6-6.6L2.3 8.9l6.8-.7L12 2Z"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Stern · Zartbitterschokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: ⭐ Stern</span>
+                <span class="pill">Ummantelung: 🖤 zartbitter</span>
+              </div>
+              <p>Ein kleiner Weihnachtsstern mit Nostalgie-Funkeln: Schoko-Knusper, feinherbe Orange und zarter Glanz.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>Zartbitterschokolade (Ummantelung)</li>
+                  <li>Schokolade „Knusperflocke“ (Füllung)</li>
+                  <li>Schale einer echten Bio-Orange</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Mögliche Allergene hängen bei „Knusperflocke“ und der verwendeten Schokolade vom Produkt ab (z.B. Milch/Soja/Nüsse). Bitte Verpackung prüfen, wenn relevant.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5: Tannenbaum (80%) -->
+        <article class="card" data-coating="80"
+                 data-search="tannenbaum 80 schokolade karamell erdnüsse peanut snickers nuss">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Tree icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.5 5H13l3.5 5H14l4 6H6l4-6H7.5L11 7H8.5L12 2Z"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M12 18v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Tannenbaum · 80% Schokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: 🎄 Tannenbaum</span>
+                <span class="pill">Ummantelung: ⚫ 80%</span>
+              </div>
+              <p>Ein kräftiger Winterklassiker: herbe 80% Hülle, innen karamellig und erdnussig – ein festliches „Snickers“-Gefühl.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>80% Schokolade (Ummantelung)</li>
+                  <li>Karamell</li>
+                  <li>Erdnüsse</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Enthält Erdnüsse. Karamell enthält typischerweise Milch (je nach Zubereitung). Bitte bei Allergien Verpackungen/Rezepte gegenprüfen.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6: Baumkugel (80%) -->
+        <article class="card" data-coating="80"
+                 data-search="baumkugel kugel 80 schokolade kokosraspeln kondensmilch milch kokos">
+          <div class="card-top">
+            <div class="iconWrap" aria-hidden="true">
+              <!-- Bauble icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M9 3h6v3H9V3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M12 7a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 6h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Baumkugel · 80% Schokolade</h3>
+              <div class="metaRow">
+                <span class="pill">Form: 🎁 Kugel</span>
+                <span class="pill">Ummantelung: ⚫ 80%</span>
+              </div>
+              <p>Wie ein Hauch Weihnachtsbaum-Deko zum Essen: herbe Schokolade, dazu cremige Kondensmilch und Kokos-Schneegestöber.</p>
+
+              <details>
+                <summary>
+                  Zutaten & Allergene
+                  <svg class="caret" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+
+                <p class="note" style="margin-top:0;">
+                  Zutaten (nach Rezept, nicht nach Mengenanteil):
+                </p>
+                <ul class="list">
+                  <li>80% Schokolade (Ummantelung)</li>
+                  <li>Kokosraspeln</li>
+                  <li>Kondensmilch</li>
+                </ul>
+
+                <p class="note">
+                  Allergen-Hinweis: Enthält Milch (Kondensmilch). Kokos ist ebenfalls enthalten. Bitte bei Allergien Verpackungen/Rezepte gegenprüfen.
+                </p>
+              </details>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-label="Allgemeiner Hinweis">
+      <div class="section-head glass">
+        <h2>Allergen- & Sicherheits-Hinweis</h2>
+        <p class="sub">
+          Diese Seite listet die Zutaten so, wie wir sie verwendet haben. Bei starken Allergien oder Unverträglichkeiten gilt:
+          Bitte zusätzlich die Produktetiketten prüfen, da Herstellerangaben (Spuren, Emulgatoren, Kreuzkontamination) variieren können.
+        </p>
+      </div>
+    </section>
+
+    <footer class="glass">
+      <div>© <span id="year"></span> Diana & Moritz · Pralinen-Guide · Weihnachten 2025</div>
+      <div style="margin-top:6px;">Tipp: Diese Seite eignet sich direkt für einen QR-Code.</div>
+    </footer>
+  </main>
+
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById("year").textContent = year;
+
+    const cards = Array.from(document.querySelectorAll("#cards .card"));
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const searchInput = document.getElementById("searchInput");
+
+    let activeFilter = "all";
+    let query = "";
+
+    function apply(){
+      const q = query.trim().toLowerCase();
+      cards.forEach(card => {
+        const coating = card.getAttribute("data-coating");
+        const hay = (card.getAttribute("data-search") || "").toLowerCase() + " " + card.textContent.toLowerCase();
+
+        const matchesFilter = (activeFilter === "all") || (coating === activeFilter);
+        const matchesQuery = !q || hay.includes(q);
+
+        card.classList.toggle("hidden", !(matchesFilter && matchesQuery));
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.getAttribute("data-filter");
+        chips.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        apply();
+      });
+    });
+
+    searchInput.addEventListener("input", (e) => {
+      query = e.target.value;
+      apply();
+    });
+
+    apply();
+  </script>
+</body>
+</html>
