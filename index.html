@@ -4,109 +4,161 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Weihnachtspralinen 2025 von Diana & Moritz – Zutaten, Allergene und kleine Festgeschichten zu jeder Sorte." />
-  <meta name="theme-color" content="#0a0f1a" />
+  <meta name="theme-color" content="#fbf7ef" />
   <title>Weihnachtspralinen 2025 · Diana & Moritz</title>
 
   <style>
     /* ==========================
-       Festlich, schlicht, mobil-first
-       Einfache Ein-Datei-Seite für GitHub Pages
+       Hell, schlicht, festlich (mobil-first)
+       Ein-Datei-Seite für GitHub Pages
        ========================== */
     :root{
-      --bg: #0a0f1a;               /* Nachtblau */
-      --text: rgba(255,255,255,.94);
-      --muted: rgba(255,255,255,.72);
-      --panel: rgba(255,255,255,.06);
-      --panel-2: rgba(255,255,255,.10);
-      --border: rgba(255,255,255,.14);
-      --ok: #22c55e;
-      --warn: #eab308;
-      --danger: #ef4444;
-      --gold: #f5d27b;             /* dezentes Gold */
-      --accent: #86efac;           /* weihnachtlich-grünlich */
-      --accent-2: #fda4af;         /* warmes Rot */
+      --bg: #fbf7ef;                 /* warmes Creme */
+      --text: #141821;
+      --muted: rgba(20,24,33,.70);
+      --panel: rgba(255,255,255,.88);
+      --panel-2: rgba(255,244,220,.75);
+      --border: rgba(20,24,33,.10);
+      --shadow: 0 14px 34px rgba(20,24,33,.10);
+
+      --gold: #b8891b;               /* dezentes Gold */
+      --evergreen: #1f7a4c;          /* festliches Grün */
+      --berry: #b42318;              /* warmes Rot */
 
       --radius: 18px;
       --radius-sm: 14px;
       --pad: clamp(16px, 4vw, 28px);
       --gap: clamp(14px, 3vw, 22px);
-      --h1: clamp(2.1rem, 4.6vw, 3.2rem);
+      --h1: clamp(2.05rem, 4.6vw, 3.05rem);
       --h2: clamp(1.35rem, 3.2vw, 2.0rem);
       --p:  clamp(1rem, 2.3vw, 1.1rem);
       --max: 980px;
     }
 
-    [data-theme="light"]{
-      --bg: #f7f8fb;
-      --text: #0a0f1a;
-      --muted: #314156;
-      --panel: rgba(10,15,26,.05);
-      --panel-2: rgba(10,15,26,.08);
-      --border: rgba(10,15,26,.12);
-      --gold: #9c7a1f;
-      --accent: #16a34a;
-      --accent-2: #dc2626;
+    /* Optional: Nachtmodus bleibt möglich, aber Standard ist hell */
+    [data-theme="dark"]{
+      --bg: #0a0f1a;
+      --text: rgba(255,255,255,.94);
+      --muted: rgba(255,255,255,.72);
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.10);
+      --border: rgba(255,255,255,.14);
+      --shadow: 0 24px 60px rgba(0,0,0,.25);
+
+      --gold: #f5d27b;
+      --evergreen: #86efac;
+      --berry: #fda4af;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(1200px 700px at 10% 0%, rgba(253,164,175,.10), transparent 60%),
-        radial-gradient(1000px 600px at 90% 15%, rgba(134,239,172,.10), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.04), transparent 40%),
-        var(--bg);
+        radial-gradient(900px 520px at 20% 0%, rgba(184,137,27,.14), transparent 55%),
+        radial-gradient(900px 520px at 85% 10%, rgba(31,122,76,.10), transparent 55%),
+        linear-gradient(180deg, #ffffff, var(--bg));
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       line-height:1.6;
       overflow-x:hidden;
     }
 
-    /* Leichte "Schnee"-Deko */
-    body::before{
-      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background-image:
-        radial-gradient(2px 2px at 20% 10%, rgba(255,255,255,.6) 40%, transparent 41%),
-        radial-gradient(2px 2px at 60% 25%, rgba(255,255,255,.7) 40%, transparent 41%),
-        radial-gradient(2px 2px at 80% 5%, rgba(255,255,255,.55) 40%, transparent 41%),
-        radial-gradient(2px 2px at 30% 60%, rgba(255,255,255,.5) 40%, transparent 41%),
-        radial-gradient(2px 2px at 70% 70%, rgba(255,255,255,.6) 40%, transparent 41%);
-      opacity:.35;
-      animation: snow 14s linear infinite;
-    }
-    @keyframes snow{
-      0%{ transform: translateY(-2%); }
-      100%{ transform: translateY(2%); }
-    }
-
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; text-underline-offset: 3px; }
 
-    .container{ max-width:var(--max); margin:0 auto; padding: var(--pad); position:relative; z-index:1; }
+    .container{ max-width:var(--max); margin:0 auto; padding: var(--pad); position:relative; }
 
-    .glass{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); backdrop-filter: blur(12px); box-shadow: 0 24px 60px rgba(0,0,0,.25); }
-
-    header{ position:sticky; top:0; z-index:10; padding-top: calc(env(safe-area-inset-top,0px) * .6); }
-    .topbar{ display:flex; align-items:center; justify-content:space-between; padding: 10px 12px; }
-    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px; }
-    .logo{ width:32px; height:32px; border-radius:10px; border:1px solid rgba(255,255,255,.2);
-      background: conic-gradient(from 45deg, #f5d27b, #fda4af, #86efac, #f5d27b);
-      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+    .glass{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:rgba(255,255,255,.06); cursor:pointer; font-weight:700; }
-    .btn:hover{ background:var(--panel-2); }
-    .btn-primary{ background: linear-gradient(135deg, rgba(245,210,123,.9), rgba(134,239,172,.6)); border-color: rgba(255,255,255,.2); }
+    header{ position:sticky; top:0; z-index:10; padding-top: calc(env(safe-area-inset-top,0px) * .6); }
+    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding: 10px 12px; }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:850; letter-spacing:.2px; }
+    .logo{
+      width:32px; height:32px; border-radius:10px;
+      border: 1px solid var(--border);
+      background: conic-gradient(from 45deg, var(--gold), var(--berry), var(--evergreen), var(--gold));
+      box-shadow: 0 10px 22px rgba(20,24,33,.12);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      cursor:pointer;
+      font-weight:750;
+    }
+    [data-theme="dark"] .btn{ background: rgba(255,255,255,.06); }
+    .btn:hover{ background: var(--panel-2); }
+
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(184,137,27,.22), rgba(31,122,76,.16));
+      border-color: rgba(184,137,27,.35);
+    }
+    .btn-primary:hover{ background: linear-gradient(135deg, rgba(184,137,27,.28), rgba(31,122,76,.20)); }
 
     .hero{ margin-top:14px; padding: clamp(18px, 4vw, 26px); display:grid; gap:var(--gap); }
-    .kicker{ display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid var(--border); background: rgba(255,255,255,.04); color:var(--muted); font-weight:600; }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      color:var(--muted);
+      font-weight:700;
+      width: fit-content;
+    }
+    [data-theme="dark"] .kicker{ background: rgba(255,255,255,.06); }
+
     h1{ margin:0; font-size:var(--h1); letter-spacing:-.02em; line-height:1.08; }
     .lead{ margin:0; font-size:var(--p); color:var(--muted); max-width:65ch; }
 
     .controls{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .chip{ display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; border:1px solid var(--border); background: rgba(255,255,255,.04); font-size:.95rem; }
+
+    .note{
+      margin-top: 8px;
+      padding: 12px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(184,137,27,.28);
+      background: rgba(255,244,220,.78);
+      color: rgba(20,24,33,.86);
+    }
+    [data-theme="dark"] .note{
+      background: rgba(234,179,8,.10);
+      border-color: rgba(234,179,8,.28);
+      color: var(--text);
+    }
+
+    .details{
+      margin-top: 10px;
+      padding: 10px 12px;
+    }
+    .details > summary{
+      cursor:pointer;
+      font-weight:800;
+      color: rgba(20,24,33,.88);
+      list-style: none;
+      padding: 8px 4px;
+    }
+    [data-theme="dark"] .details > summary{ color: var(--text); }
+    .details > summary::-webkit-details-marker{ display:none; }
+    .details > summary:before{
+      content:"▸";
+      display:inline-block;
+      margin-right: 8px;
+      color: var(--evergreen);
+      transform: translateY(-1px);
+    }
+    .details[open] > summary:before{ content:"▾"; }
 
     section{ margin-top: clamp(16px, 3vw, 22px); }
     .section-head{ padding: 16px; }
@@ -116,10 +168,34 @@
     .grid{ display:grid; gap:var(--gap); margin-top: var(--gap); }
     @media (min-width: 820px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
 
-    .card{ position:relative; padding: 16px; border-radius: var(--radius); border:1px solid var(--border); background: rgba(255,255,255,.045); box-shadow: 0 12px 32px rgba(0,0,0,.18); }
-    .card.threat{ outline:2px solid var(--danger); box-shadow: 0 18px 36px rgba(239,68,68,.18); }
+    .card{
+      position:relative;
+      padding: 16px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 12px 26px rgba(20,24,33,.08);
+    }
+    [data-theme="dark"] .card{ background: rgba(255,255,255,.045); box-shadow: 0 12px 32px rgba(0,0,0,.18); }
+
+    .card.threat{
+      border-color: rgba(180,35,24,.55);
+      box-shadow: 0 16px 30px rgba(180,35,24,.14);
+      background: rgba(180,35,24,.05);
+    }
+    [data-theme="dark"] .card.threat{ background: rgba(239,68,68,.08); }
+
     .head{ display:flex; align-items:center; gap:12px; margin-bottom:6px; }
-    .icon{ width:44px; height:44px; border-radius:14px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(245,210,123,.18), rgba(134,239,172,.12)); border:1px solid var(--border); }
+    .icon{
+      width:44px; height:44px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      background: var(--panel-2);
+      border:1px solid var(--border);
+      color: rgba(20,24,33,.88);
+    }
+    [data-theme="dark"] .icon{ background: linear-gradient(135deg, rgba(245,210,123,.18), rgba(134,239,172,.12)); color: var(--text); }
+
     .name{ margin:0; font-size:1.1rem; letter-spacing:-.01em; }
     .coat{ margin:0; font-size:.95rem; color:var(--muted); }
     .desc{ margin:10px 0 10px; color:var(--muted); }
@@ -127,22 +203,28 @@
     .list li{ margin: 2px 0; }
 
     .badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .badge{ display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:.9rem; border:1px solid var(--border); background: rgba(255,255,255,.05); }
-    .badge.warn{ background: rgba(234,179,8,.12); border-color: rgba(234,179,8,.35); }
-    .badge.danger{ background: rgba(239,68,68,.12); border-color: rgba(239,68,68,.35); }
+    .badge{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.9rem;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.70);
+    }
+    [data-theme="dark"] .badge{ background: rgba(255,255,255,.05); }
+
+    .badge.warn{ background: rgba(184,137,27,.14); border-color: rgba(184,137,27,.30); }
+    .badge.danger{ background: rgba(180,35,24,.12); border-color: rgba(180,35,24,.30); }
 
     footer{ margin-top:18px; padding:16px; text-align:center; color:var(--muted); font-size:.95rem; }
 
-    /* Print: weiß, klar, ohne Hintergrund */
     @media print{
       body{ background:white; color:black; }
-      body::before{ display:none; }
-      .glass, .card{ box-shadow:none; backdrop-filter:none; }
-      .icon{ background:none; border:1px solid #bbb; }
+      .glass, .card{ box-shadow:none; }
       .btn, .controls{ display:none !important; }
+      .details{ border: 1px solid #ddd; }
     }
 
-    /* Kleine Helfer */
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   </style>
 </head>
@@ -168,20 +250,21 @@
       <h1>Handgemachte Pralinen – mit Liebe, Glanz und einem Hauch Wintermagie.</h1>
       <p class="lead">Hier findest du alle Sorten, die wir in diesem Jahr verschenken – mit Zutaten & eventuellen Allergenen. Scanne einfach den QR‑Code und stöbere durch unsere kleine, süße Weihnachtswelt.</p>
 
-      <div class="chip" style="margin-top:6px">⚠️ <strong>Allergen-Hinweis:</strong> Hausgemacht in einer Küche, in der <em>Nüsse, Erdnüsse, Milchprodukte</em> und <em>Gluten</em> verarbeitet werden. Kreuzkontamination ist möglich.</div>
+      <div class="note">⚠️ <strong>Allergen‑Hinweis:</strong> Hausgemacht in einer Küche, in der <em>Nüsse, Erdnüsse, Milchprodukte</em> und <em>Gluten</em> verarbeitet werden. Kreuzkontamination ist möglich.</div>
 
-      <div class="glass" style="padding:12px; margin-top:10px">
-        <div class="sub" style="margin-bottom:8px"><strong>Allergen‑Check:</strong> Markiere, was du vermeiden möchtest. Betroffene Pralinen werden deutlich hervorgehoben.</div>
+      <details class="details glass">
+        <summary>Allergen‑Check (optional) – markieren, was du vermeiden möchtest</summary>
+        <p class="sub" style="margin: 6px 0 10px">Betroffene Pralinen werden auf der Seite deutlich markiert.</p>
         <div class="controls" id="filters" role="group" aria-label="Allergen-Filter">
-          <label class="chip"><input type="checkbox" value="nuesse" /> Nüsse (z. B. Walnuss, Mandel, Pinienkerne)</label>
-          <label class="chip"><input type="checkbox" value="erdnuss" /> Erdnuss</label>
-          <label class="chip"><input type="checkbox" value="gluten" /> Gluten/Getreide</label>
-          <label class="chip"><input type="checkbox" value="milch" /> Milch/Milcherzeugnisse</label>
-          <label class="chip"><input type="checkbox" value="honig" /> Honig</label>
-          <label class="chip"><input type="checkbox" value="zitrus" /> Zitrus/Orange</label>
-          <label class="chip"><input type="checkbox" value="kokos" /> Kokos</label>
+          <label class="badge"><input type="checkbox" value="nuesse" /> Nüsse (z. B. Walnuss, Mandel, Pinienkerne)</label>
+          <label class="badge"><input type="checkbox" value="erdnuss" /> Erdnuss</label>
+          <label class="badge"><input type="checkbox" value="gluten" /> Gluten/Getreide</label>
+          <label class="badge"><input type="checkbox" value="milch" /> Milch/Milcherzeugnisse</label>
+          <label class="badge"><input type="checkbox" value="honig" /> Honig</label>
+          <label class="badge"><input type="checkbox" value="zitrus" /> Zitrus/Orange</label>
+          <label class="badge"><input type="checkbox" value="kokos" /> Kokos</label>
         </div>
-      </div>
+      </details>
     </section>
 
     <section id="pralinen" aria-label="Pralinensorten">
@@ -360,13 +443,24 @@
   </main>
 
   <script>
-    // Theme toggle (light/dark)
+    // Theme toggle (Standard: hell)
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
     const storedTheme = localStorage.getItem('theme');
-    function applyTheme(t){ t==='light' ? root.setAttribute('data-theme','light') : root.removeAttribute('data-theme'); localStorage.setItem('theme', t); }
-    if(storedTheme){ applyTheme(storedTheme); } else { const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches; applyTheme(prefersLight ? 'light' : 'dark'); }
-    themeBtn.addEventListener('click',()=>{ const isLight = root.getAttribute('data-theme')==='light'; applyTheme(isLight?'dark':'light'); });
+
+    function applyTheme(t){
+      if(t === 'dark') root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+      localStorage.setItem('theme', t);
+    }
+
+    // Standard ist hell; Nachtmodus nur wenn aktiv gewählt
+    applyTheme(storedTheme ? storedTheme : 'light');
+
+    themeBtn.addEventListener('click',()=>{
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      applyTheme(isDark ? 'light' : 'dark');
+    }); });
 
     // Print button
     document.getElementById('printBtn').addEventListener('click',()=> window.print());
