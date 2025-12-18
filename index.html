@@ -277,7 +277,7 @@
         <!-- 1. Weißes Herz – Pinienkerne & Himbeere -->
         <article class="card" data-allergens="nuesse,honig,milch" aria-labelledby="p1-title">
           <div class="head">
-            <div class="icon" aria-hidden="true"> 
+            <div class="icon" aria-hidden="true">
               <!-- Herz -->
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M12 21s-7-4.35-9.5-7.85C.88 10.9 2 7.5 5.2 6.6 7.26 6 9.08 6.9 10 8c.92-1.1 2.74-2 4.8-1.4 3.2.9 4.32 4.3 2.7 6.55C19 16.65 12 21 12 21Z" stroke="currentColor" stroke-width="1.2" fill="currentColor" opacity=".85"/>
@@ -460,7 +460,7 @@
     themeBtn.addEventListener('click',()=>{
       const isDark = root.getAttribute('data-theme') === 'dark';
       applyTheme(isDark ? 'light' : 'dark');
-    }); });
+    });
 
     // Print button
     document.getElementById('printBtn').addEventListener('click',()=> window.print());
@@ -468,7 +468,9 @@
     // Allergen filter: mark cards that match any selected allergen
     const filters = document.getElementById('filters');
     const cards = Array.from(document.querySelectorAll('.card'));
+
     function updateAllergenHighlights(){
+      if(!filters) return;
       const selected = Array.from(filters.querySelectorAll('input:checked')).map(i=>i.value);
       cards.forEach(card=>{
         const tags = (card.getAttribute('data-allergens')||'').split(',').map(s=>s.trim()).filter(Boolean);
@@ -477,10 +479,52 @@
         card.setAttribute('aria-label', (card.querySelector('.name')?.textContent||'') + (hit? ' – enthält ausgewählte Allergene' : ''));
       });
     }
-    filters.addEventListener('change', updateAllergenHighlights);
+
+    if(filters){
+      filters.addEventListener('change', updateAllergenHighlights);
+    }
 
     // Jahreszahl
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Mini-Selbsttests (nur Konsole) ---
+    (function runSelfTests(){
+      try{
+        const results = [];
+        results.push({name: 'Buttons vorhanden', pass: !!themeBtn && !!document.getElementById('printBtn')});
+        results.push({name: '6 Pralinenkarten vorhanden', pass: cards.length === 6});
+
+        const before = root.getAttribute('data-theme');
+        applyTheme('dark');
+        const afterDark = root.getAttribute('data-theme') === 'dark';
+        applyTheme('light');
+        const afterLight = !root.getAttribute('data-theme');
+        if(before === 'dark') applyTheme('dark'); // Zustand wiederherstellen
+        results.push({name: 'Theme-Umschaltung setzt Attribute korrekt', pass: afterDark && afterLight});
+
+        // Allergen-Markierung simulieren, wenn Filter existiert
+        if(filters){
+          const firstCard = cards[0];
+          const cb = filters.querySelector('input[value="nuesse"]');
+          const hadChecked = cb && cb.checked;
+          if(cb){
+            cb.checked = true;
+            updateAllergenHighlights();
+            const marked = firstCard.classList.contains('threat');
+            cb.checked = !!hadChecked;
+            updateAllergenHighlights();
+            results.push({name: 'Allergen-Highlight funktioniert', pass: marked});
+          }
+        }
+
+        const allPass = results.every(r=>r.pass);
+        console.log('%cWeihnachtspralinen 2025 – Self Tests', 'font-weight:800');
+        results.forEach(r=>console.log(`${r.pass ? '✅' : '❌'} ${r.name}`));
+        if(!allPass) console.warn('Ein oder mehrere Self Tests sind fehlgeschlagen.');
+      }catch(e){
+        console.warn('Self Tests konnten nicht ausgeführt werden:', e);
+      }
+    })();
   </script>
 </body>
 </html>
